@@ -1,47 +1,42 @@
-<head>
-<style>
-        h1 {text-align: center;}
-        p {text-align: center;}
-        div {text-align: center;}
-        warning {text-align: center, color:Tomato;}
-</style>
-        <title>Cat empire</title>
-        <link rel="icon" type="image/x-icon" href="">
-</head>
-        <h1><h1 style=font-size:6.5vw><img src="https://raw.githubusercontent.com/hihi333444/CatEmpire.github.io/main/cat_empire.png" width="105" height="63.5">Cat empire<img src="https://raw.githubusercontent.com/hihi333444/CatEmpire.github.io/main/cat_empire.png" width="105" height="63.5">
-</h1>
-<html>
-    style='position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;'><iframe sandbox='allow-scripts allow-same-origin allow-presentation' allowfullscreen='true' allowtransparency='true' frameborder='0' height='315' src='https://www.mentimeter.com/app/presentation/alemo7harag2tnufizam4hgysfk8u4rr/qucawy36x74k' style='position: absolute; top: 0; left: 0; width: 100%; height: 100%;' width='420'></iframe>
-    <h1 style=font-size:2vw>
-    click <a href="https://www.menti.com/aljobvkdhsp6">here</a> to put a word on the image above. please do not put anything weird in it.
-    click <a href="https://forms.office.com/r/Qd1VCQvUwr">here</a> to add a flag for the vote.
-    click <a href="https://forms.office.com/r/S88ebm2Hft">here</a> to add a flag for when we have a flag vote.<a style="color:Tomato;"> ⚠️Voting for a flag will be soon⚠️</a>
-    <h1 style=font-size:1vw>
-    <a style="color:Tomato;"> ⚠️warnings⚠️
-    ㅤ
-    Current flags <a style="color:Tomato;">Ignore the size that will be fixed later
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%201.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%202.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%203.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%204.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%205.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%206.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%207.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%208.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%209.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2010.png" width="154" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2011.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2012.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2014.png" width="160" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2015.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2016.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2017.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2018.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2019.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2020.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2021.png" width="200" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2022.png" width="267" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2023.png" width="150" height="200">
-            <img src="https://raw.githubusercontent.com/hihi333444/CatEmpire/main/Flags/Flag%2013.png" width="1336" height="768">
-    <div>  </div>
-    </html>
+<?
+
+if (isset($_POST['vote'])) { // Check if there is a vote POSTed to our page
+    // Store the vote. I don't know how you did it the previous time, I'm just going to write it to a text file
+    $file = fopen("votes.txt", "w");
+    fwrite($file, $_POST['vote']);
+    fclose($file);
+}
+
+?>
+
+<!-- the voting page -->
+
+<HTML>
+    <HEAD>
+        <title>Vote</title>
+    </HEAD>
+    <BODY>
+        <!-- Create a form to be able to send the vote to the server in the simplest way, but don't display it -->
+        <form action="thispage.html" method="post" style="display:none;">
+            <!-- I don't know what possible values there are. I'll just take 'foo' and 'bar'. Of course you can add more. -->
+            <input type="radio" name="vote" value="foo" />
+            <input type="radio" name="vote" value="bar" />
+        </form>
+
+        <!-- The images representing the (invisible) radio button -->
+        <!-- I use the data-value attribute to store to which radio button this image corresponds -->
+        <img src="path/to/foo/image" data-value="foo" />Vote FOO<br />
+        <img src="path/to/bar/image" data-value="bar" />Vote BAR<br />
+
+        <!-- Import jQuery for the sake of simplicity. -->
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <!-- The trickiest part. The script. -->
+        <script>
+            $("img").click(function() {
+                 var value = $(this).data('value');        // Get the value
+                 $("input[value='" + value + "']").click();// Click the corresponding radio button
+                 $("form").submit(); // Submit the form.
+            });
+        </script>
+    </BODY>
+</HTML>
